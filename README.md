@@ -1,9 +1,8 @@
 # GitLab-Tutorial
 the tutorial for gitlab
-# Quewts 
+# Quests 
 ## Оглавление
- 
- **1)**
+**1)**
  
  **2)**
  

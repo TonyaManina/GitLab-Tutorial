@@ -42,7 +42,7 @@ the tutorial for gitlab
 
 ## Глава 2. Создание ветки master и develop
 После того, как вы склонировали репозиторий, вернитесь в папку, где будет лежать ваш проект с помощью команды cd, после чего пропишите следующую команду: git checkout -b master. Поздравляю, ветка создана. Ветку develop создать можно по такому же принципу.
-![Пример создания ветки develop](/users/florenes/desktop/2.png)
+![Пример создания ветки develop](/users/florenes/desktop/2.png](https://github.com/TonyaManina/GitLab-Tutorial/blob/main/1.png)
  
  
  

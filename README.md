@@ -19,7 +19,7 @@ the tutorial for gitlab
  
  
  
- 
+   
 
 
 ## Глава 3. Установка ветки develop по умолчанию

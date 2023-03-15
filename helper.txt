@@ -3,7 +3,7 @@ https://mk.cs.msu.ru/images/1/19/Prac_318_Style_guide.pdf
 
 gcc -Wall -Werror -Wextra
 
-
+ нейронка для написания кода https://codepal.ai/
 
 int main() {
     int a, b;

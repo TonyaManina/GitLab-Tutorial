@@ -1,0 +1,6 @@
+презенташка по стандарту для С
+https://mk.cs.msu.ru/images/1/19/Prac_318_Style_guide.pdf
+
+gcc -Wall -Werror -Wextra
+
+

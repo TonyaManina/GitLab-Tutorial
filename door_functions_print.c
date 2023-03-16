@@ -80,3 +80,4 @@ void point_printer(int point_y) {
     for(int space_count = 1; space_count <= 21 - point_y; space_count++) {printf(" ");}
     printf("\n");
 }
+// sasa

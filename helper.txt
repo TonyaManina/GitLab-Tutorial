@@ -48,3 +48,135 @@ double important_func(double x) {
     b = x * pow((10 + x), 2 / x) - 1.01;
     return a - b;
 }}
+
+Door paint
+#include <stdio.h>
+#include <math.h>
+double Agnesi(double a);
+double Bernoulli(double a);
+double Hyperbola(double a);
+int point_define(double y_pos, double d_y, double min_y);
+void MakeTable();
+void MakeGraph1();
+void MakeGraph2();
+void MakeGraph3();
+void point_printer(int point_y);
+
+int main() {
+MakeGraph1();
+printf("\n");
+MakeGraph2();
+printf("\n");
+MakeGraph3();
+return 0;
+}
+double Agnesi(double a) {
+    double b = 1/(1+a*a);
+    return b;
+}
+
+double Bernoulli(double a) {
+    double b = sqrt(1+4*a*a);
+    double c = (a*a)+1;
+    double return_code;
+    if (b<c) return_code = -1;
+    else return_code = sqrt(b-c);
+    return return_code;
+}
+
+double Hyperbola(double a) {
+    double return_code = 0;
+    if (a==0) return_code = -1;
+    else return_code = 1/(a*a);
+    return return_code;
+}
+
+void MakeTable() {
+    double I = 2*M_PI/41;
+    double x, y1, y2, y3;
+    for (int i=0; i<=41; i++) {
+        x = -M_PI + i*I;
+        y1 = Agnesi(x);
+        y2 = Bernoulli(x);
+        y3 = Hyperbola(x);
+        printf("%.7f | ", x);
+        printf("%.7f | ", y1);
+        if (y2<0) printf("- | ");
+        else printf("%.7f | ", y2);
+        if (y3<0) printf("\n");
+        else printf("%.7f\n", y3);
+        
+    }
+    
+}
+
+void MakeGraph1() {
+    double Ymin = 1/(1+M_PI*M_PI), Ymax = 1;
+    double J = (Ymax - Ymin)/20;
+    double I = 2*M_PI/41;
+    double x, y1;
+    for (int j = 0; j<=20; j++) {
+        printf("\n");
+        for (int i = 0; i<=41; i++) {
+            x = -M_PI + i*I;
+            y1 = Agnesi(x);
+            if ((y1<= (Ymax-j*J)) && (y1>=(Ymax-((j+1)*J)))) printf("*");
+            else printf(" ");
+        }
+    }
+}
+
+void MakeGraph2() {
+    double Ymin = 0.3061966, Ymax = 0.761782;
+    double J = (Ymax - Ymin)/20;
+    double I = 2*M_PI/41;
+    double x, y2;
+    for (int j = 0; j<=20; j++) {
+        printf("\n");
+        for (int i = 0; i<=41; i++) {
+            x = -M_PI + i*I;
+            y2 = Bernoulli(x);
+            if ((y2<= (Ymax-j*J)) && (y2>=(Ymax-((j+1)*J)))) printf("*");
+            else printf(" ");
+        }
+    }
+}
+
+void MakeGraph3() {
+    double Ymin = 1/M_PI*M_PI, Ymax = 170.3209097;
+    double J = (Ymax - Ymin)/20;
+    double I = 2*M_PI/41;
+    double x, y2;
+    for (int j = 0; j<=20; j++) {
+        printf("\n");
+        for (int i = 0; i<=41; i++) {
+            x = -M_PI + i*I;
+            y2 = Hyperbola(x);
+            if ((y2<= (Ymax-j*J)) && (y2>=(Ymax-((j+1)*J)))) printf("*");
+            else printf(" ");
+        }
+    }
+}
+
+int point_define(double y_pos, double d_y, double min_y) {
+    int current_pos = 1;
+    int good_pos = 1;
+    double min_delta = 9999999;
+    double some;
+    while (current_pos <= 21) {
+        some = ((min_y + (d_y) * current_pos) - y_pos);
+        if (some < 0) {some = some * (-1);}
+        if (some < min_delta) {
+            min_delta = some;
+            good_pos = current_pos;
+        }
+        current_pos++;
+    }
+    return good_pos;
+}
+void point_printer(int point_y) {
+    for(int space_count = 1; space_count <= point_y - 1; space_count++) {printf(" ");}
+    printf("*");
+    for(int space_count = 1; space_count <= 21 - point_y; space_count++) {printf(" ");}
+    printf("\n");
+}
